@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MindCare Reports</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:#eef4ff;
+padding:20px;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+}
+
+.header{
+background:linear-gradient(135deg,#2563eb,#1e40af);
+color:white;
+padding:30px;
+border-radius:20px;
+margin-bottom:25px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+text-align:center;
+}
+
+.card h2{
+color:#2563eb;
+margin-bottom:10px;
+}
+
+.value{
+font-size:40px;
+font-weight:bold;
+}
+
+.wellness{
+background:white;
+padding:30px;
+margin-top:25px;
+border-radius:20px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.progress{
+height:30px;
+background:#ddd;
+border-radius:20px;
+overflow:hidden;
+margin-top:15px;
+}
+
+.bar{
+height:100%;
+width:0%;
+background:linear-gradient(90deg,#2563eb,#60a5fa);
+}
+
+.message{
+margin-top:15px;
+font-size:22px;
+font-weight:bold;
+color:#2563eb;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+<h1>📊 Wellness Reports Dashboard</h1>
+<p>Your overall mental wellness summary</p>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<h2>😊 Mood Score</h2>
+<div class="value" id="moodScore">0%</div>
+</div>
+
+<div class="card">
+<h2>🏃 Activity Score</h2>
+<div class="value" id="activityScore">0%</div>
+</div>
+
+<div class="card">
+<h2>📝 Journal Entries</h2>
+<div class="value" id="journalCount">0</div>
+</div>
+
+</div>
+
+<div class="wellness">
+
+<h2>🏆 Overall Wellness Score</h2>
+
+<div class="value" id="wellnessScore">
+0%
+</div>
+
+<div class="progress">
+<div class="bar" id="bar"></div>
+</div>
+
+<div class="message" id="message">
+Start Tracking Today
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+let moods=
+JSON.parse(localStorage.getItem("moods")) || [];
+
+let moodScore=0;
+
+if(moods.length>0){
+moodScore=moods[moods.length-1].score;
+}
+
+document.getElementById("moodScore").innerHTML=
+moodScore+"%";
+
+let activityScore=
+parseInt(localStorage.getItem("activityScore")) || 0;
+
+document.getElementById("activityScore").innerHTML=
+activityScore+"%";
+
+let journals=
+JSON.parse(localStorage.getItem("journals")) || [];
+
+document.getElementById("journalCount").innerHTML=
+journals.length;
+
+let overall=
+Math.round(
+(moodScore+activityScore)/2
+);
+
+document.getElementById("wellnessScore").innerHTML=
+overall+"%";
+
+document.getElementById("bar").style.width=
+overall+"%";
+
+let msg="Keep Going 🌱";
+
+if(overall>=50)
+msg="Doing Well 🌿";
+
+if(overall>=80)
+msg="Excellent Wellness 🏆";
+
+document.getElementById("message").innerHTML=
+msg;
+
+</script>
+
+</body>
+</html>

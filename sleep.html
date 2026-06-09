@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sleep Tracker</title>
+
+<style>
+
+body{
+font-family:Segoe UI;
+background:#eef4ff;
+padding:20px;
+}
+
+.card{
+max-width:600px;
+margin:auto;
+background:white;
+padding:25px;
+border-radius:20px;
+}
+
+input{
+width:100%;
+padding:15px;
+margin-top:10px;
+}
+
+button{
+width:100%;
+padding:15px;
+background:#2563eb;
+color:white;
+border:none;
+margin-top:10px;
+}
+
+.score{
+font-size:40px;
+color:#2563eb;
+text-align:center;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h2>😴 Sleep Tracker</h2>
+
+<input type="number"
+id="sleep"
+placeholder="Hours Slept">
+
+<button onclick="saveSleep()">
+Save Sleep
+</button>
+
+<div class="score"
+id="score">
+0%
+</div>
+
+</div>
+
+<script>
+
+function saveSleep(){
+
+let sleep=
+document.getElementById("sleep").value;
+
+let score=
+Math.min(
+100,
+Math.round((sleep/8)*100)
+);
+
+document.getElementById("score").innerHTML=
+score+"%";
+
+localStorage.setItem(
+"sleepScore",
+score
+);
+
+}
+
+</script>
+
+</body>
+</html>

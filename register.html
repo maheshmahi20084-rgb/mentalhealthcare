@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MindCare Register</title>
+
+<style>
+
+body{
+margin:0;
+font-family:'Segoe UI',sans-serif;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#0ea5e9,#2563eb);
+}
+
+.register-box{
+width:420px;
+background:white;
+padding:40px;
+border-radius:25px;
+box-shadow:0 15px 35px rgba(0,0,0,.2);
+}
+
+.logo{
+text-align:center;
+font-size:60px;
+}
+
+h2{
+text-align:center;
+color:#2563eb;
+margin-bottom:20px;
+}
+
+input{
+width:100%;
+padding:14px;
+margin:10px 0;
+border:2px solid #dbeafe;
+border-radius:12px;
+font-size:16px;
+}
+
+input:focus{
+outline:none;
+border-color:#2563eb;
+}
+
+button{
+width:100%;
+padding:14px;
+background:linear-gradient(135deg,#2563eb,#1d4ed8);
+border:none;
+color:white;
+font-size:16px;
+border-radius:12px;
+cursor:pointer;
+}
+
+button:hover{
+opacity:.9;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="register-box">
+
+<div class="logo">🧠</div>
+
+<h2>Create Account</h2>
+
+<input type="text" id="name" placeholder="Full Name">
+
+<input type="email" id="email" placeholder="Email">
+
+<input type="password" id="password" placeholder="Password">
+
+<button onclick="register()">
+Create Account
+</button>
+
+</div>
+
+<script>
+
+function register(){
+
+let user={
+
+name:document.getElementById("name").value,
+
+email:document.getElementById("email").value,
+
+password:document.getElementById("password").value
+
+};
+
+localStorage.setItem(
+"user",
+JSON.stringify(user)
+);
+
+alert("Registration Successful");
+
+window.location="login.html";
+
+}
+
+</script>
+
+</body>
+</html>

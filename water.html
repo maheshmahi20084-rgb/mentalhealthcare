@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Water Tracker</title>
+
+<style>
+
+body{
+font-family:Segoe UI;
+background:#eef4ff;
+padding:20px;
+}
+
+.card{
+max-width:600px;
+margin:auto;
+background:white;
+padding:25px;
+border-radius:20px;
+}
+
+input{
+width:100%;
+padding:15px;
+margin-top:10px;
+}
+
+button{
+width:100%;
+padding:15px;
+background:#2563eb;
+color:white;
+border:none;
+margin-top:10px;
+}
+
+.score{
+font-size:40px;
+text-align:center;
+color:#2563eb;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h2>💧 Water Intake Tracker</h2>
+
+<input type="number"
+id="water"
+placeholder="Glasses of Water">
+
+<button onclick="saveWater()">
+Save Water
+</button>
+
+<div class="score"
+id="score">
+0%
+</div>
+
+</div>
+
+<script>
+
+function saveWater(){
+
+let water=
+document.getElementById("water").value;
+
+let score=
+Math.min(
+100,
+Math.round((water/8)*100)
+);
+
+document.getElementById("score").innerHTML=
+score+"%";
+
+localStorage.setItem(
+"waterScore",
+score
+);
+
+}
+
+</script>
+
+</body>
+</html>s

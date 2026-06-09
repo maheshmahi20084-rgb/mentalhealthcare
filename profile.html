@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Profile</title>
+<style>
+body{
+font-family:Segoe UI;
+background:#eef4ff;
+padding:20px;
+}
+.card{
+max-width:500px;
+margin:auto;
+background:white;
+padding:30px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+.avatar{
+font-size:80px;
+}
+h2{
+color:#2563eb;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+<div class="avatar">👤</div>
+
+<h2 id="name">User</h2>
+
+<p>Welcome to MindCare</p>
+
+<p id="email"></p>
+
+</div>
+
+<script>
+let user=
+JSON.parse(localStorage.getItem("user"));
+
+if(user){
+document.getElementById("name").innerHTML=user.name;
+document.getElementById("email").innerHTML=user.email;
+}
+</script>
+
+</body>
+</html>

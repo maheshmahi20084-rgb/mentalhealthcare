@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MindCare Dashboard</title>
+
+<style>
+
+body{
+background:linear-gradient(135deg,#e0f2fe,#dbeafe,#f8fafc);
+font-family:Segoe UI,sans-serif;
+padding:20px;
+}
+
+h1{
+text-align:center;
+color:#1e3a8a;
+margin-bottom:30px;
+}
+
+.features{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+padding:30px;
+border-radius:20px;
+text-decoration:none;
+color:white;
+font-size:22px;
+font-weight:bold;
+text-align:center;
+box-shadow:0 8px 20px rgba(0,0,0,0.15);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+/* Mood Card */
+.mood{
+background:linear-gradient(135deg,#3b82f6,#1d4ed8);
+}
+
+/* Activities Card */
+.activity{
+background:linear-gradient(135deg,#06b6d4,#0891b2);
+}
+
+/* Journal Card */
+.journal{
+background:linear-gradient(135deg,#8b5cf6,#6d28d9);
+}
+
+/* Reports Card */
+.report{
+background:linear-gradient(135deg,#10b981,#059669);
+}
+
+.icon{
+font-size:55px;
+display:block;
+margin-bottom:15px;
+}
+
+p{
+font-size:14px;
+margin-top:10px;
+font-weight:normal;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>🧠 MindCare Dashboard</h1>
+
+<div class="features">
+
+<a href="mood.html" class="card mood">
+<span class="icon">😊</span>
+Mood Tracker
+<p>Track your emotions daily</p>
+</a>
+
+<a href="activities.html" class="card activity">
+<span class="icon">🏃</span>
+Activities
+<p>Monitor wellness activities</p>
+</a>
+
+<a href="journal.html" class="card journal">
+<span class="icon">📝</span>
+Journal
+<p>Write thoughts and reflections</p>
+</a>
+
+<a href="reports.html" class="card report">
+<span class="icon">📊</span>
+Reports
+<p>View wellness analytics</p>
+</a>
+<a href="profile.html" class="card profile">
+<span class="icon">👤</span>
+Profile
+<p>View your account details</p>
+</a>
+
+<a href="sleep.html" class="card sleep">
+<span class="icon">😴</span>
+Sleep Tracker
+<p>Monitor sleep quality</p>
+</a>
+
+<a href="water.html" class="card water">
+<span class="icon">💧</span>
+Water Tracker
+<p>Track daily hydration</p>
+</a>
+
+<a href="settings.html" class="card settings">
+<span class="icon">⚙️</span>
+Settings
+<p>Manage app preferences</p>
+</a>
+</div>
+
+</body>
+</html>
